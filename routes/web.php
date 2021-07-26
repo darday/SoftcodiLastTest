@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContablesController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EstudianteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/*Route::get('/estudiante', function () {
+    return view('estudiante.index');
+});*/
+
+Route::resource('estudiante',EstudianteController::class);
 
 Route::get('/contables', [ContablesController::class, 'index'])->name('list_contable');
 Route::get('/contables-agregar', [ContablesController::class, 'create'])->name('contable');
